@@ -34,3 +34,25 @@ pip install -r requirements.txt
 # Create data directory if it doesn't exist
 mkdir -p data
 ```
+
+## Usage
+
+The application requires administrator/root privileges to capture network packets:
+
+```bash
+# Make sure you're in the project directory with the virtual environment activated
+cd /path/to/NetVision
+source nv/bin/activate
+
+# Run the application with admin/root privileges
+# On Linux/Mac:
+sudo $(which python) src/app.py
+
+# On Windows (run PowerShell or CMD as Administrator):
+python src/app.py
+```
+
+After starting the application, open your web browser and navigate to:
+```
+http://127.0.0.1:5000
+```
