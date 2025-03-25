@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NetVision - Network Monitoring Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>NetVision: Network Monitoring Dashboard</h1>
+        
+        <div class="chart-section">
+            <h2>Protocol Distribution</h2>
+            {{ protocol_chart | safe }}
+        </div>
+        
+        <div class="devices-section">
+            <h2>Active Devices</h2>
+            <div id="device-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Fetch and display devices
+        fetch('/api/devices')
+            .then(response => response.json())
+            .then(devices => {
+                const deviceList = document.getElementById('device-list');
+                devices.forEach(device => {
+                    const deviceDiv = document.createElement('div');
+                    deviceDiv.textContent = `IP: ${device.ip}, MAC: ${device.mac}`;
+                    deviceList.appendChild(deviceDiv);
+                });
+            });
+    </script>
+</body>
+</html>
