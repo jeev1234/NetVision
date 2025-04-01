@@ -10,11 +10,15 @@ NetVision is a comprehensive network monitoring and traffic analysis tool that p
 - **Top Talkers**: Identifies the most active IP addresses on your network
 - **Interactive Dashboard**: Web-based visualization with real-time data updates
 
-## Requirements
+## Prerequisites
 
-- Python 3.8+
-- Nmap (for network scanning)
-- Admin/root privileges (for packet capturing)
+- **Python 3.8+**
+- **Nmap** installed on your system (required for network scanning)
+  - Ubuntu/Debian: `sudo apt-get install nmap`
+  - Fedora/RHEL: `sudo dnf install nmap`
+  - macOS: `brew install nmap`
+  - Windows: Download from https://nmap.org/download.html
+- **Admin/root privileges** (required for packet capturing)
 
 ## Installation
 
