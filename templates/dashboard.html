@@ -17,7 +17,11 @@
         
         <div class="devices-section">
             <h2>Active Devices</h2>
-            <div id="device-list"></div>
+            <div class="loading-container">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Scanning network for active devices...</p>
+            </div>
+            <div id="device-list" class="hidden"></div>
         </div>
     </div>
 
@@ -26,12 +30,36 @@
         fetch('/api/devices')
             .then(response => response.json())
             .then(devices => {
+                // Hide loading animation
+                document.querySelector('.loading-container').classList.add('hidden');
+                
+                // Show device list
                 const deviceList = document.getElementById('device-list');
+                deviceList.classList.remove('hidden');
+                
+                if (devices.length === 0) {
+                    deviceList.innerHTML = '<p>No devices found on the network.</p>';
+                    return;
+                }
+                
                 devices.forEach(device => {
                     const deviceDiv = document.createElement('div');
-                    deviceDiv.textContent = `IP: ${device.ip}, MAC: ${device.mac}`;
+                    deviceDiv.className = 'device-item';
+                    deviceDiv.innerHTML = `
+                        <div><strong>IP:</strong> ${device.ip}</div>
+                        <div><strong>MAC:</strong> ${device.mac}</div>
+                        <div><strong>Hostname:</strong> ${device.hostname}</div>
+                    `;
                     deviceList.appendChild(deviceDiv);
                 });
+            })
+            .catch(error => {
+                // Handle errors
+                document.querySelector('.loading-container').classList.add('hidden');
+                const deviceList = document.getElementById('device-list');
+                deviceList.classList.remove('hidden');
+                deviceList.innerHTML = '<p class="error">Error loading device data. Please try again.</p>';
+                console.error('Error fetching devices:', error);
             });
     </script>
 </body>

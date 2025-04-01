@@ -1,7 +1,7 @@
 import csv
 from datetime import datetime
 from scapy.all import sniff, IP, TCP, UDP
-
+ 
 class PacketCapturer:
     def __init__(self, csv_path='data/network_traffic.csv'):
         self.csv_path = csv_path

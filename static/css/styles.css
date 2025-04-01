@@ -21,3 +21,50 @@ h1 {
 .chart-section, .devices-section {
     margin-top: 20px;
 }
+
+/* Loading animation styles */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+.loading-text {
+    font-size: 16px;
+    color: #666;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Device item styling */
+.device-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid #3498db;
+    background-color: #f8f9fa;
+    border-radius: 0 4px 4px 0;
+}
+
+.error {
+    color: #e74c3c;
+    font-weight: bold;
+}

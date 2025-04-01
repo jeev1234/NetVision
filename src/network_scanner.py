@@ -1,6 +1,6 @@
 import nmap
 
-def scan_network(network='10.14.146.0/23'):
+def scan_network(network='10.30.202.5/21'):
     """
     Scan local network and return list of active devices
     
