@@ -1,0 +1,188 @@
+/* 
+ * NetVision Dashboard Styles
+ * Combined stylesheet for the NetVision dashboard application
+ */
+
+/* ==== Base Styles ==== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+.main-container {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+}
+
+h2 {
+    color: #2980b9;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+h3, h4 {
+    color: #3498db;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* ==== Dashboard Layout ==== */
+.dashboard-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.dashboard-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* ==== Loading Animations ==== */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    margin: 20px 0;
+    width: 100%;
+    background-color: rgba(247, 247, 247, 0.5);
+    border-radius: 8px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+.loading-text {
+    font-size: 16px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==== Tables ==== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* ==== Tabs ==== */
+.dash-tab {
+    padding: 15px 0;
+}
+
+/* ==== Performance Metrics ==== */
+#latency-container, 
+#packet-loss-container,
+#jitter-container,
+#dns-container,
+#connection-time-container {
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 10px 15px;
+    margin: 10px 0;
+}
+
+#connection-stats {
+    background-color: #f0f7ff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* ==== Status Indicator ==== */
+.status-indicator {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ==== Device Item ==== */
+.device-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid #3498db;
+    background-color: #f8f9fa;
+    border-radius: 0 4px 4px 0;
+}
+
+/* ==== Utility Classes ==== */
+.dash-loading {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.metric-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* ==== Graphs ==== */
+.js-plotly-plot {
+    margin-bottom: 20px;
+}
